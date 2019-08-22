@@ -1,4 +1,4 @@
-function value_count = count(data_matrix, value)
+function value_count = count_value(data_matrix, value)
 % COUNT  Returns the number of times a value occurs in a vector
 %
 % value_count = count(data_matrix, value)

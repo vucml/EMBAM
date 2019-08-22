@@ -42,7 +42,9 @@ end
 % columns as values has
 value_counts = zeros(1, length(values));
 for i = 1:length(values)
-  value_counts(i) = count(data_matrix, values(i));
+  value_counts(i) = count_value(data_matrix, values(i));
+%   value_counts(i) = nnz(data_matrix==values(i));  % alternative way of
+%   doing it
 end
 
 %endfunction
