@@ -71,7 +71,7 @@ x_vals = merged_params.cols;
 y_vals = NaN(length(spcs), size(x_vals, 2));
 for i = 1:length(spcs)
   M = spcs{i};
-  y_vals(i, :) = nanmean(M(:, merged_params.cols), 1);
+  y_vals(i, :) = mean(M(:, merged_params.cols), 1, 'omitnan');
 end
 
 % hand off to plot_general

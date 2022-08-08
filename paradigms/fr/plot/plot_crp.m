@@ -96,7 +96,7 @@ x_vals = merged_params.cols - merged_params.zerocol;
 y_vals = NaN(length(lag_crps), size(x_vals, 2));
 for i = 1:length(lag_crps)
   M = lag_crps{i};
-  y_vals(i, :) = nanmean(M(:, merged_params.cols), 1);
+  y_vals(i, :) = mean(M(:, merged_params.cols), 1, 'omitnan');
 end
 
 if ~isempty(merged_params.errorbars)
