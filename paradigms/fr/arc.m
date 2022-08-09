@@ -31,8 +31,8 @@ function [arc_scores] = arc(catrecalls_matrix, subjects, mask)
 % EXAMPLES:
 % >> catrecalls_matrix = [0 1 1 1 2 1 0 0 NaN NaN NaN; ...
 %                         2 2 2 1 1 0 1 NaN NaN NaN NaN];
-% >> subjects = [1; 2]; cats = [0 1 2];
-% >> arc_scores = arc(catrecall_matrix, subjects, cats);
+% >> subjects = [1; 2];
+% >> arc_scores = arc(catrecall_matrix, subjects);
 
 % sanity checks
 if ~exist('catrecalls_matrix', 'var')
