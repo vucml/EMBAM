@@ -92,15 +92,19 @@ if size(from_mask_rec) ~= size(recalls_matrix) | ...
 end
 
 pres_mask_size = [size(recalls_matrix, 1), list_length];
+pres_mask = true(pres_mask_size);
 if ~exist('from_mask_pres', 'var')
-  % assume pres_mask should allow all presented items
-  pres_mask = true(pres_mask_size);
+  % if missing, assume pres_mask should allow all presented items
+  from_mask_pres = pres_mask;
 elseif any(size(from_mask_pres) ~= pres_mask_size)
   error(['from_mask_pres must have the same number of rows as' ...
 	 ' recalls_matrix and list_length columns'])
 elseif any(size(to_mask_pres) ~= pres_mask_size)
   error(['to_mask_pres must have the same number of rows as' ...
 	 ' recalls_matrix and list_length columns'])
+end
+if ~exist('to_mask_pres', 'var')
+    to_mask_pres = pres_mask;
 end
 
 % crp_for_subj is going to do all the real work:
